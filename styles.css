@@ -1,0 +1,66 @@
+*{
+    margin: 0;padding:0;
+    box-sizing: border-box;
+}
+
+#current-image-container{
+    width: 96vw;
+    background-color: black;
+    color: white;
+    margin: 10px 10px;
+    padding: 10px;
+    
+
+}
+#current-image-container h1{
+    padding:10px;
+    font-size: 3rem;
+}
+#current-image-container p{
+    padding:10px;
+    font-size: 1.4rem;
+    width:80%;
+
+}
+#current-image-container img{
+    padding: 10px;
+    width: 99%;
+}
+#current-image-container h2{
+    padding:10px;
+    font-size: 1.7rem;
+}
+#search-form{
+    margin: 20px 10px;
+    padding: 10px;
+    font-size: 1.6rem;
+}
+#search-form     input{
+    font-size: 1.2rem;
+
+}
+#search-form     label{
+    font-size: 1.5rem;
+
+}
+#search-form     button{
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+
+}
+#search-history{
+    margin-left: 20px;
+    padding: 30px;
+    list-style:circle;
+    font-size: 1.5rem;
+    
+}
+#search-history li{
+    cursor: pointer;
+    color: blue;
+}
+#search-history li:hover{
+    transform: scale(1.02);
+    color:red;  
+}
