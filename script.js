@@ -52,13 +52,14 @@ async function getcurrentImageoftheDay(date) {
   }
 }
 async function getImageoftheDay2(date) {
-  const api_url = `https://api.nasa.gov/planetary/apod?api_key=RvUauES8ANwnRZaVbODWZqxAMeAo4IcQKy6a0alf&date=${date}`;
-  let response = await fetch(api_url);
-  let data = await response.json();
-  console.log(data);
-  if (data.url) {
-    image_container.innerHTML = "";
-    const html = `<h1>Picture of date :${data.date}</h1>
+  try {
+    const api_url = `https://api.nasa.gov/planetary/apod?api_key=RvUauES8ANwnRZaVbODWZqxAMeAo4IcQKy6a0alf&date=${date}`;
+    let response = await fetch(api_url);
+    let data = await response.json();
+    console.log(data);
+    if (data.url) {
+      image_container.innerHTML = "";
+      const html = `<h1>Picture of date :${data.date}</h1>
       <img
         src="${data.hdurl}"
         alt="image"
@@ -67,14 +68,17 @@ async function getImageoftheDay2(date) {
       <p>
         ${data.explanation}
       </p>`;
-    image_container.insertAdjacentHTML("afterbegin", html);
+      image_container.insertAdjacentHTML("afterbegin", html);
 
-    addSearchtoHistory();
-  } else {
-    image_container.innerHTML = "";
+      addSearchtoHistory();
+    } else {
+      image_container.innerHTML = "";
 
-    const html = `<h2>Error:${data.msg}</h2>`;
-    image_container.innerHTML = html;
+      const html = `<h2>Error:${data.msg}</h2>`;
+      image_container.innerHTML = html;
+    }
+  } catch (error) {
+    console.log(error);
   }
 }
 async function getImageoftheDay(date) {
